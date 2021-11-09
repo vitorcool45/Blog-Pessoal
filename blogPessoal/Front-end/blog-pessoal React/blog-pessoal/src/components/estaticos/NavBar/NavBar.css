@@ -1,0 +1,21 @@
+
+.cor{
+    background-image: linear-gradient( to right,red, transparent, blue  );
+}
+
+.icon{
+    color: black;
+}
+
+.text-decorator-none{
+    text-decoration: none;
+}
+
+.cursor{
+    cursor: pointer;
+    color: white;
+}
+
+.nome-blog{
+    color: gold;
+}

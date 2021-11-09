@@ -1,0 +1,18 @@
+.titulo{
+    color: red;
+    text-align: center;
+}
+
+.legoshi{
+    height: 500px;
+    width: 500px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.fundo-1{
+    background: rgb(212,118,159);
+    background: radial-gradient(circle, rgba(212,118,159,1) 50%, rgba(148,187,233,1) 75%);
+    min-height: 100vh;
+}
