@@ -1,24 +1,16 @@
-.cardbox{
-    border-radius: 15%!important;
-    background: rgb(131,58,180)!important;
-    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)!important;
-    padding: 15px;
-}
-
-.botao{
-   color: black;
-   background: blueviolet!important;
-}
-
-.usuario{
-    padding-left: 75px;
-    justify-content: center!important;
-    align-items: center!important;
-    width: 150px;
-    height: 150px;
-}
-
-.cadastre {
-    cursor: pointer;
-    font: bold!important;
-}
+.textos1{
+    font-weight: bold !important;
+ }
+ 
+ .imagem{
+     background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
+     background-repeat: no-repeat;
+     width: 100vh;
+     min-height: 100vh;
+     background-size: cover;
+     background-position: center;
+ }
+ 
+ .text-decorator-none{
+     text-decoration: none;
+ }

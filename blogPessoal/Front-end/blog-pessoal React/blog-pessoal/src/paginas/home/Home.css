@@ -1,18 +1,22 @@
+.caixa{
+    background-color: #3F51B5;
+}
+
 .titulo{
-    color: red;
-    text-align: center;
+   color: white !important;
+   font-weight: bold !important;
 }
 
-.legoshi{
-    height: 500px;
-    width: 500px;
-    display: block;
-    margin: 0 auto;
-    border-radius: 50%;
+.botao{
+    border-color: white !important;
+    background-color: #3F51B5;
+    color: white !important;
 }
 
-.fundo-1{
-    background: rgb(212,118,159);
-    background: radial-gradient(circle, rgba(212,118,159,1) 50%, rgba(148,187,233,1) 75%);
-    min-height: 100vh;
+.postagens{
+    background-color: white;
+}
+
+.text-decorator-none{
+    text-decoration: none;
 }

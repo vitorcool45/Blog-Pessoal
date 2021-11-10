@@ -1,27 +1,34 @@
-import { Button, Container, FormHelperText } from "@material-ui/core";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import { ChangeEvent, useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
-import Postagem from "../../../models/Postagem";
-import Tema from "../../../models/Tema";
-import { busca, buscaId, post, put } from "../../../services/Service";
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
+import './CadastroPostagem.css';
+import { useHistory, useParams } from 'react-router-dom';
+import Tema from '../../../models/Tema';
+import Postagem from '../../../models/Postagem';
+import { busca, buscaId, post, put } from '../../../services/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReduce';
+import { toast } from 'react-toastify';
 
-
-function CadastrarPostagem() {
+function CadastroPost() {
     let history = useHistory();
     const { id } = useParams<{ id: string }>();
     const [temas, setTemas] = useState<Tema[]>([])
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+      );
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             history.push("/login")
 
         }
@@ -39,7 +46,7 @@ function CadastrarPostagem() {
         tema: null
     })
 
-    useEffect(() => {
+    useEffect(() => { 
         setPostagem({
             ...postagem,
             tema: tema
@@ -88,21 +95,39 @@ function CadastrarPostagem() {
                     'Authorization': token
                 }
             })
-            alert('Postagem atualizada com sucesso');
+            toast.success('Postagem atualizada com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         } else {
             post(`/postagens`, postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Postagem cadastrada com sucesso');
+            toast.success('Postagem cadastrada com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         }
         back()
 
     }
 
     function back() {
-        history.push('/postagens')
+        history.push('/posts')
     }
 
     return (
@@ -136,6 +161,5 @@ function CadastrarPostagem() {
             </form>
         </Container>
     )
-
 }
-export default CadastrarPostagem;
+export default CadastroPost;
